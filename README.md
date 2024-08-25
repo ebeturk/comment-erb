@@ -1,4 +1,4 @@
-"ERB Commenter" is meant to address the problem of commenting and uncommenting ERB tags in `.erb` and `html.erb` files within Visual Studio Code. The default commenting behavior in VSCode can cause issues with ERB tags, so this extension provides a custom solution specifically designed for Ruby on Rails developers.
+ERB Toggle Comments is meant to address the problem of commenting and uncommenting ERB tags in `.erb` and `html.erb` files within Visual Studio Code. The default commenting behavior in VSCode can cause issues with ERB tags, so this extension provides a custom solution specifically designed for Ruby on Rails developers.
 
 ## Features
 
