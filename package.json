@@ -1,0 +1,55 @@
+{
+  "name": "comment-erb",
+  "displayName": "ERB Toggle Comments",
+  "description": "A VSCode extension to comment and uncomment ERB tags",
+  "version": "0.0.1",
+  "publisher": "Ebeturk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ebeturk/comment-erb.git"
+  },
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:comment-erb.commentErbTag"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+        {
+            "command": "comment-erb.commentErbTag",
+            "title": "Comment/Uncomment ERB Tag"
+        }
+    ],
+    "keybindings": [
+        {
+            "command": "comment-erb.commentErbTag",
+            "key": "cmd+/",
+            "when": "editorTextFocus && resourceExtname == '.erb'",
+            "mac": "cmd+/"
+        },
+        {
+            "command": "comment-erb.commentErbTag",
+            "key": "ctrl+/",
+            "when": "editorTextFocus && resourceExtname == '.erb'",
+            "win": "ctrl+/",
+            "linux": "ctrl+/"
+        }
+    ]
+},
+
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs",
+    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.4.5"
+  },
+  "icon": "icon.png"
+}
