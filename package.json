@@ -2,7 +2,7 @@
   "name": "comment-erb",
   "displayName": "ERB Toggle Comments",
   "description": "A VSCode extension to comment and uncomment ERB tags",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Ebeturk",
   "repository": {
     "type": "git",
