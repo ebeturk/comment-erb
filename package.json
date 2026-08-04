@@ -20,34 +20,40 @@
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-        {
-            "command": "comment-erb.commentErbTag",
-            "title": "Comment/Uncomment ERB Tag"
-        }
+      {
+        "command": "comment-erb.commentErbTag",
+        "title": "Comment/Uncomment ERB Tag"
+      }
     ],
     "keybindings": [
-        {
-            "command": "comment-erb.commentErbTag",
-            "key": "cmd+/",
-            "when": "editorTextFocus && resourceExtname == '.erb'",
-            "mac": "cmd+/"
-        },
-        {
-            "command": "comment-erb.commentErbTag",
-            "key": "ctrl+/",
-            "when": "editorTextFocus && resourceExtname == '.erb'",
-            "win": "ctrl+/",
-            "linux": "ctrl+/"
-        }
+      {
+        "command": "comment-erb.commentErbTag",
+        "key": "cmd+/",
+        "when": "editorTextFocus && resourceExtname == '.erb'",
+        "mac": "cmd+/"
+      },
+      {
+        "command": "comment-erb.commentErbTag",
+        "key": "ctrl+/",
+        "when": "editorTextFocus && resourceExtname == '.erb'",
+        "win": "ctrl+/",
+        "linux": "ctrl+/"
+      }
     ]
-},
-
+  },
   "scripts": {
+    "vscode:prepublish": "npm run build",
+    "compile": "tsc -p ./",
     "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs",
-    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --watch"
+    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --watch",
+    "test": "npm run compile && npm run build && vscode-test"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
     "@types/vscode": "^1.92.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
     "esbuild": "^0.21.5",
     "typescript": "^5.4.5"
   },
