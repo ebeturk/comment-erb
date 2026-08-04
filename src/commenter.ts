@@ -9,11 +9,14 @@ function uncommentHtml(lineText: string): string {
 }
 
 function commentErbLine(lineText: string): string {
-    return lineText.replace(/<%/, '<%# ').replace(/\s*%>/, ' %>');
+    return lineText.replace(/<%/, '<%#');
 }
 
 function uncommentErbLine(lineText: string): string {
-    return lineText.replace(/<%#\s*/, '<%').replace(/\s*%>/, '%>');
+    return lineText
+        .replace(/^<%# ([=-])/, '<%$1')
+        .replace(/^<%#  /, '<% ')
+        .replace(/^<%#/, '<%');
 }
 
 function commentExecutableErbTags(lineText: string): string {
